@@ -19,5 +19,3 @@ cargo atcoder test abc049c
 ```
 cargo atcoder submit abc049c --bin
 ```
-
-よくわからんがsubmitできん
