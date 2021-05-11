@@ -19,14 +19,17 @@ fn main() {
 
     let dislikes = (0..k).map(|_| read::<u32>()).collect::<Vec<u32>>();
 
-    'outer: while n < 10000 {
-        'inner: for i in dislikes.iter() {
-            if is_hate_appear(n, *i) {
+    'outer: loop {
+        'inner: for (i, v) in dislikes.iter().enumerate() {
+            if is_hate_appear(n, *v) {
+                n += 1;
                 break 'inner;
             }
-            break 'outer;
+
+            if i + 1 == dislikes.len() {
+                break 'outer;
+            }
         }
-        n += 1;
     };
 
     println!("{}", n);
